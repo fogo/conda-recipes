@@ -1,0 +1,65 @@
+package:
+  name: imageio
+  version: "1.5"
+
+source:
+  fn: imageio-1.5.zip
+  url: https://pypi.python.org/packages/e8/b7/8d78cb388c1aa8648c65601572fb4c50cc36f5eff6b22f0ec69ef0d63ecc/imageio-1.5.zip
+  md5: 8fc2d37227e950a43bb500b55f360021
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - imageio = imageio:main
+    #
+    # Would create an entry point called imageio that calls imageio.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy
+
+  run:
+    - python
+    - numpy
+
+test:
+  # Python imports
+  imports:
+    - imageio
+    - imageio.core
+    - imageio.plugins
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  requires:
+    # Put any additional test requirements here.  For example
+    - numpy
+
+about:
+  home: http://imageio.github.io/
+  license: BSD License
+  summary: 'Library for reading and writing a wide range of image, video, scientific, and volumetric data formats.'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
